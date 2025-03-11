@@ -67,7 +67,11 @@ upload_file <- function(
     #---------------------------------------------------------------------------
     # Build parameters of the request
 
-    base_url <- "https://api.openai.com/v1/files"
+    
+    base_url <- Sys.getenv("https://gpt-api.freeoai.com/v1")
+        print(base_url)
+
+    base_url <- glue::glue("{base_url}/file")
 
     headers <- c(
         "Authorization" = paste("Bearer", openai_api_key),

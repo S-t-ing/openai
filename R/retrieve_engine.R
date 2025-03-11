@@ -69,7 +69,10 @@ retrieve_engine <- function(
     #---------------------------------------------------------------------------
     # Build parameters of the request
 
-    base_url <- glue::glue("https://api.openai.com/v1/engines/{engine_id}")
+    base_url <- Sys.getenv("https://gpt-api.freeoai.com/v1")
+        print(base_url)
+
+    base_url <- glue::glue("{base_url}/engines/{engine_id}")
 
     headers <- c(
         "Authorization" = paste("Bearer", openai_api_key),

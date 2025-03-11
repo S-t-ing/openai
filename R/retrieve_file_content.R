@@ -46,7 +46,11 @@ retrieve_file_content <- function(
     #---------------------------------------------------------------------------
     # Build parameters of the request
 
-    base_url <- glue::glue("https://api.openai.com/v1/files/{file_id}/content")
+    
+    base_url <- Sys.getenv("https://gpt-api.freeoai.com/v1")
+        print(base_url)
+
+    base_url <- glue::glue("{base_url}/files/{file_id}/content")
 
     headers <- c(
         "Authorization" = paste("Bearer", openai_api_key),

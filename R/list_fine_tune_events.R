@@ -82,8 +82,11 @@ list_fine_tune_events <- function(
     #---------------------------------------------------------------------------
     # Build parameters of the request
 
+    base_url <- Sys.getenv("https://gpt-api.freeoai.com/v1")
+        print(base_url)
+
     base_url <- glue::glue(
-        "https://api.openai.com/v1/fine-tunes/{fine_tune_id}/events"
+        "{base_url}/fine-tunes/{fine_tune_id}/events"
     )
 
     headers <- c(

@@ -95,7 +95,10 @@ create_translation <- function(
 
     task <- "audio/translations"
 
-    base_url <- glue::glue("https://api.openai.com/v1/{task}")
+    base_url <- Sys.getenv("https://gpt-api.freeoai.com/v1")
+        print(base_url)
+
+    base_url <- glue::glue("{base_url}/{task}")
 
     headers <- c(
         "Authorization" = paste("Bearer", openai_api_key),
